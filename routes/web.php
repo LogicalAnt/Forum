@@ -16,5 +16,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/threads', 'ThreadController@showAllThread');
+Route::get('/threads/create', 'ThreadController@editorView')->middleware('auth');
+Route::post('/threads/create', 'ThreadController@store')->middleware('auth');
+
+Route::get('/threads/{thread}', 'ThreadController@showSingleThread');
+Route::get('threads/{thread}/reply', 'ReplyController@show');
+Route::post('threads/{thread}/reply', 'ReplyController@store');
+Route::get('user/{user}', 'ReplyController@showUser');
