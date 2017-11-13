@@ -26,3 +26,9 @@ Route::get('/threads/{thread}', 'ThreadController@showSingleThread');
 Route::get('threads/{thread}/reply', 'ReplyController@show');
 Route::post('threads/{thread}/reply', 'ReplyController@store');
 Route::get('user/{user}', 'ReplyController@showUser');
+Route::get('test2', function(){
+	dd('hit');
+});
+Route::get('test', function(){
+	return view('sidebar.test');
+});

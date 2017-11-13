@@ -21,7 +21,7 @@ class ThreadController extends Controller
     
     public function showAllThread(Thread $thread)
     {
-        $threads=Thread:: orderBy('created_at', 'desc')->paginate(10);
+        $threads=Thread::orderBy('created_at', 'desc')->with('owner')->paginate(10);
         return view('threads.index', compact('threads'));
     }
 
